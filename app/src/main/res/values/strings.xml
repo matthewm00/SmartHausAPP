@@ -4,4 +4,16 @@
     <string name="tab_text_2">Devices</string>
     <string name="tab_text_3">Actions</string>
     <string name="configuracion">Settings</string>
+    <string name="item1">Me</string>
+    <string name="item2">Family</string>
+    <string name="item3">Lovely</string>
+    <string name="item4">Team</string>
+    <string name="item5">Friends</string>
+    <string name="item6">Calendars</string>
+    <string name="item7">Calendars</string>
+    <string name="item8">Calendars</string>
+    <string name="item9">Calendars</string>
+    <string name="item10">Calendars</string>
+    <string name="item11">Calendars</string>
+    <string name="item12">Calendars</string>
 </resources>
