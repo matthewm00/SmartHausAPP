@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" translatable="false">SmartHaus</string>
+    <string name="tab_text_1">Rooms</string>
+    <string name="tab_text_2">Devices</string>
+    <string name="tab_text_3">Actions</string>
+    <string name="configuracion">Settings</string>
+</resources>

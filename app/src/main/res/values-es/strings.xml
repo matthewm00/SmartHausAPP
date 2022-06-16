@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">SmartHaus</string>
+    <string name="tab_text_1">Habitaciones</string>
+    <string name="tab_text_2">Dispositivos</string>
+    <string name="tab_text_3">Acciones</string>
+    <string name="configuracion">Configuración</string>
+</resources>
