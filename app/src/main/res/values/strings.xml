@@ -16,4 +16,7 @@
     <string name="item10">Calendars</string>
     <string name="item11">Calendars</string>
     <string name="item12">Calendars</string>
+    <string name="status">status</string>
+    <string name="card_title">TITLE</string>
+    <string name="item_text">ATR Item %1$d</string>
 </resources>
