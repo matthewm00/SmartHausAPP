@@ -19,8 +19,6 @@ import com.example.smarthausapp.ui.main.CustomAdapter
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: CustomAdapter
-    private var dataSet = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,28 +32,7 @@ class MainActivity : AppCompatActivity() {
         val tabs: TabLayout = binding.tabs
         tabs.setupWithViewPager(viewPager)
 
-//        setContentView(R.layout.card_items)
-
         setSupportActionBar(findViewById(R.id.my_toolbar))
-
-        for (i in 1..6) addItem(i)
-
-        adapter = CustomAdapter(dataSet)
-        binding.recyclerview.layoutManager = LinearLayoutManager(this)
-        binding.recyclerview.setLayoutManager(GridLayoutManager(this, 2));
-        binding.recyclerview.adapter = adapter
-
-        binding.fab.setOnClickListener {
-            addItem(dataSet.size + 1)
-            //adapter.notifyDataSetChanged();
-            adapter.notifyItemInserted(dataSet.size)
-        }
-
-    }
-
-    private fun addItem(index: Int) {
-        val itemText = resources.getString(R.string.item_text, index)
-        dataSet.add(itemText)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
