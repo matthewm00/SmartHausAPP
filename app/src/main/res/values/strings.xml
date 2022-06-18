@@ -22,6 +22,6 @@
     <string name="Complete_hoover">New Base Charge Location</string>
     <string name="change_location_hoover">Change Hoover Location</string>
     <string name="confirmation_button">Confirm</string>
-    <string name="aspirar_trapear_switch">Suck up/Mop</string>
+    <string name="aspirar_trapear_switch">Vacuum/Mop</string>
     <string name="on_off_switch">On/Off</string>
 </resources>
