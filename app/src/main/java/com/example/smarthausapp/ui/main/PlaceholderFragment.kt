@@ -21,6 +21,9 @@ class PlaceholderFragment : Fragment() {
     private lateinit var pageViewModel: PageViewModel
     private var _binding: FragmentMainBinding? = null
 
+    private lateinit var adapter: CustomAdapter
+    private var dataSet = ArrayList<String>()
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -30,6 +33,11 @@ class PlaceholderFragment : Fragment() {
         pageViewModel = ViewModelProvider(this).get(PageViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
         }
+    }
+
+    private fun addItem(index: Int) {
+        val itemText = resources.getString(R.string.item_text, index)
+        dataSet.add(itemText)
     }
 
     override fun onCreateView(
@@ -44,6 +52,21 @@ class PlaceholderFragment : Fragment() {
         pageViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+
+        for (i in 1..5) addItem(i)
+
+        adapter = CustomAdapter(dataSet)
+        binding.recyclerview.layoutManager = LinearLayoutManager(this.context)
+        binding.recyclerview.layoutManager = GridLayoutManager(this.context, 2)
+        binding.recyclerview.adapter = adapter
+
+        binding.fab.setOnClickListener {
+            addItem(dataSet.size + 1)
+            //adapter.notifyDataSetChanged();
+            adapter.notifyItemInserted(dataSet.size)
+        }
+
         return root
     }
 
