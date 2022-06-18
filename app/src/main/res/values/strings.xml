@@ -24,4 +24,14 @@
     <string name="confirmation_button">Confirm</string>
     <string name="aspirar_trapear_switch">Vacuum/Mop</string>
     <string name="on_off_switch">On/Off</string>
+    <string name="open_close_switch">Open/Close</string>
+    <string name="set_position">Set Position</string>
+    <string name="set_temperature">Set Temperature</string>
+    <string name="set_mode">Set Mode</string>
+    <string name="set_vertical_direction">Set Vertical Direction</string>
+    <string name="set_horizontal_direction">Set Horizontal Direction</string>
+    <string name="set_speed">Set Speed</string>
+    <string name="lock_switch">Lock/Unlock</string>
+    <string name="set_freezer_temperature">Set Freezer Temperature</string>
+    <string name="set_fridge_temperature">Set Fridge Temperature</string>
 </resources>
