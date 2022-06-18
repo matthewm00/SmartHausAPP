@@ -19,4 +19,6 @@
     <string name="status">status</string>
     <string name="card_title">TITLE</string>
     <string name="item_text">ATR Item %1$d</string>
+
+    <string name="Complete_hoover">Change Base Charge Location</string>
 </resources>
