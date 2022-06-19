@@ -1,7 +1,10 @@
 package com.example.smarthausapp.ui.main
 
+import android.content.ClipData
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -15,7 +18,7 @@ class CustomAdapter constructor(private val dataSet: ArrayList<String>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_item, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, myListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -27,16 +30,22 @@ class CustomAdapter constructor(private val dataSet: ArrayList<String>) :
         return dataSet.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private lateinit var myListener : onItemClickListener
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener){
+        myListener = listener
+    }
+
+    class ViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView
 
         init {
-//            ver de mandar a otra activity o generar otro fragment
-//            itemView.setOnClickListener { view1: View ->
-//                val snackbarText =
-//                    view1.resources.getString(R.string.element_clicked, adapterPosition)
-//                Snackbar.make(itemView, snackbarText, BaseTransientBottomBar.LENGTH_LONG).show()
-//            }
+            itemView.setOnClickListener { listener.onItemClick(adapterPosition)
+            }
             textView = itemView.findViewById(R.id.textView)
         }
     }

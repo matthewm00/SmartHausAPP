@@ -1,17 +1,22 @@
 package com.example.smarthausapp.ui.main
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.smarthausapp.R
 import com.example.smarthausapp.databinding.FragmentMainBinding
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -57,6 +62,12 @@ class PlaceholderFragment : Fragment() {
         for (i in 1..5) addItem(i)
 
         adapter = CustomAdapter(dataSet)
+        adapter.setOnItemClickListener(object : CustomAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                Toast.makeText(this@PlaceholderFragment.context, "You clicked item $position", Toast.LENGTH_SHORT).show()
+                // para cada posicion que mande al fragment correspondiente del dispositivo
+            }
+        })
         binding.recyclerview.layoutManager = LinearLayoutManager(this.context)
         binding.recyclerview.layoutManager = GridLayoutManager(this.context, 2)
         binding.recyclerview.adapter = adapter
