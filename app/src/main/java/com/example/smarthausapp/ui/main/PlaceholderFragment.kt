@@ -1,6 +1,6 @@
 package com.example.smarthausapp.ui.main
 
-import android.R
+//import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -65,7 +65,7 @@ class PlaceholderFragment : Fragment() {
         adapter.setOnItemClickListener(object : CustomAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
                 Toast.makeText(this@PlaceholderFragment.context, "You clicked item $position", Toast.LENGTH_SHORT).show()
-                // para cada posicion que mande al fragment correspondiente del dispositivo
+            // para cada posicion que mande al fragment correspondiente del dispositivo
             }
         })
         binding.recyclerview.layoutManager = LinearLayoutManager(this.context)
