@@ -18,7 +18,8 @@ class DeviceActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
+
+        itemViewModel = ViewModelProvider(this)[ItemViewModel::class.java]
         val item  = itemViewModel.selectedItem
 
         when(item.value){

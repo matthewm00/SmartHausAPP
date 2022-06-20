@@ -34,4 +34,6 @@
     <string name="lock_switch">Lock/Unlock</string>
     <string name="set_freezer_temperature">Set Freezer Temperature</string>
     <string name="set_fridge_temperature">Set Fridge Temperature</string>
+    <string name="device_activity">Device</string>
+    <string name="ac_title">Air Conditioner</string>
 </resources>

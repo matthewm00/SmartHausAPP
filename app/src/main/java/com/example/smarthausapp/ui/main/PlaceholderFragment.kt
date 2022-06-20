@@ -68,8 +68,8 @@ class PlaceholderFragment : Fragment() {
             override fun onItemClick(position: Int) {
                 itemViewModel.selectItem(position)
                 Toast.makeText(this@PlaceholderFragment.context, "You clicked item $position \n ItemViewModel: ${itemViewModel.selectedItem.value}", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(activity, DeviceActivity::class.java)
-//                startActivity(intent)
+                val intent = Intent(this@PlaceholderFragment.context, DeviceActivity::class.java)
+                startActivity(intent)
             }
         })
         binding.recyclerview.layoutManager = LinearLayoutManager(this.context)
