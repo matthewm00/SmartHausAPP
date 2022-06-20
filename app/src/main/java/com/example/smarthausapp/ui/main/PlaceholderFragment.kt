@@ -1,11 +1,11 @@
 package com.example.smarthausapp.ui.main
 
 //import android.R
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -13,7 +13,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.smarthausapp.R
 import com.example.smarthausapp.databinding.FragmentMainBinding
 
@@ -24,6 +23,7 @@ import com.example.smarthausapp.databinding.FragmentMainBinding
 class PlaceholderFragment : Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
+    private lateinit var itemViewModel: ItemViewModel
     private var _binding: FragmentMainBinding? = null
 
     private lateinit var adapter: CustomAdapter
@@ -37,6 +37,9 @@ class PlaceholderFragment : Fragment() {
         super.onCreate(savedInstanceState)
         pageViewModel = ViewModelProvider(this).get(PageViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
+        }
+        itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java).apply {
+            selectItem(0)
         }
     }
 
@@ -58,14 +61,15 @@ class PlaceholderFragment : Fragment() {
             textView.text = it
         })
 
-
         for (i in 1..5) addItem(i)
 
         adapter = CustomAdapter(dataSet)
         adapter.setOnItemClickListener(object : CustomAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
-                Toast.makeText(this@PlaceholderFragment.context, "You clicked item $position", Toast.LENGTH_SHORT).show()
-            // para cada posicion que mande al fragment correspondiente del dispositivo
+                itemViewModel.selectItem(position)
+                Toast.makeText(this@PlaceholderFragment.context, "You clicked item $position \n ItemViewModel: ${itemViewModel.selectedItem.value}", Toast.LENGTH_SHORT).show()
+//                val intent = Intent(activity, DeviceActivity::class.java)
+//                startActivity(intent)
             }
         })
         binding.recyclerview.layoutManager = LinearLayoutManager(this.context)

@@ -8,14 +8,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.smarthausapp.R
 
-class PageViewModel : ViewModel() {
+class ItemViewModel : ViewModel() {
 
-    private val _index = MutableLiveData<Int>()
-    val text: LiveData<String> = Transformations.map(_index) {
-        "Hello world from section: $it"
-    }
+    private val mutableSelectedItem = MutableLiveData<Int>()
+    val selectedItem: LiveData<Int> get() = mutableSelectedItem
 
-    fun setIndex(index: Int) {
-        _index.value = index
+    fun selectItem(position: Int) {
+        mutableSelectedItem.value = position
     }
 }
