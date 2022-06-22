@@ -1,6 +1,7 @@
 package com.example.smarthausapp.ui.main
 
 //import android.R
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -40,7 +41,31 @@ class PlaceholderFragment : Fragment() {
     }
 
     private fun addItem(index: Int) {
-        val itemText = resources.getString(R.string.item_text, index)
+        val itemText: String
+        val device: String
+        when(index) {
+            1-> {
+                device = resources.getString(R.string.ac_title)
+                itemText = resources.getString(R.string.item_text, device)
+            }
+            2 -> {
+                device = resources.getString(R.string.hoover_title)
+                itemText = resources.getString(R.string.item_text, device)
+            }
+            3 -> {
+                device = resources.getString(R.string.curtain_title)
+                itemText = resources.getString(R.string.item_text, device)
+            }
+            4 -> {
+                device = resources.getString(R.string.door_title)
+                itemText = resources.getString(R.string.item_text, device)
+            }
+            5 -> {
+                device = resources.getString(R.string.fridge_title)
+                itemText = resources.getString(R.string.item_text, device)
+            }
+            else -> itemText = " "
+        }
         dataSet.add(itemText)
     }
 

@@ -36,7 +36,7 @@ class PlaceholderFragment2 : Fragment() {
     }
 
     private fun addItem(index: Int) {
-        val itemText = resources.getString(R.string.item_text, index)
+        val itemText = resources.getString(R.string.item_text, "Action $index")
         dataSet.add(itemText)
     }
 

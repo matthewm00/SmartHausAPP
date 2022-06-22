@@ -17,8 +17,8 @@
     <string name="item11">Calendario</string>
     <string name="item12">Calendario</string>
     <string name="status">estado</string>
-    <string name="card_title">TITULO</string>
-    <string name="item_text">ATR Item %1$d</string>
+    <string name="card_title">%1$s</string>
+    <string name="item_text">%1$s</string>
     <string name="Complete_hoover">Nueva Ubicacion Base Carga</string>
     <string name="change_location_hoover">Ubicacion Carga Aspiradora</string>
     <string name="confirmation_button">Confirmar</string>
@@ -35,4 +35,10 @@
     <string name="set_freezer_temperature">Setear Temperatura Freezer</string>
     <string name="set_fridge_temperature">Setear Temperatura Heladera</string>
     <string name="item3">Lindo</string>
+    <string name="device_activity">Dispositivo</string>
+    <string name="ac_title">Aire Acondicionado</string>
+    <string name="hoover_title">Aspiradora</string>
+    <string name="curtain_title">Cortinas</string>
+    <string name="door_title">Puerta</string>
+    <string name="fridge_title">Heladera</string>
 </resources>

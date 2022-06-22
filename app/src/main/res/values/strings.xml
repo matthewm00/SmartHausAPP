@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">SmartHaus</string>
+    <string name="app_name">SmartHaus</string>
     <string name="tab_text_1">Rooms</string>
     <string name="tab_text_2">Devices</string>
     <string name="tab_text_3">Actions</string>
@@ -17,8 +17,8 @@
     <string name="item11">Calendars</string>
     <string name="item12">Calendars</string>
     <string name="status">status</string>
-    <string name="card_title">TITLE</string>
-    <string name="item_text">ATR Item %1$d</string>
+    <string name="card_title">%1$s</string>
+    <string name="item_text">%1$s</string>
     <string name="Complete_hoover">New Base Charge Location</string>
     <string name="change_location_hoover">Change Hoover Location</string>
     <string name="confirmation_button">Confirm</string>
@@ -36,4 +36,9 @@
     <string name="set_fridge_temperature">Set Fridge Temperature</string>
     <string name="device_activity">Device</string>
     <string name="ac_title">Air Conditioner</string>
+    <string name="hoover_title">Hoover</string>
+    <string name="curtain_title">Curtains</string>
+    <string name="door_title">Door</string>
+    <string name="fridge_title">Fridge</string>
+
 </resources>
