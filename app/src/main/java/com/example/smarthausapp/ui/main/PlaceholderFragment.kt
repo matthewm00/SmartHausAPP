@@ -22,7 +22,6 @@ import com.example.smarthausapp.databinding.FragmentMainBinding
  */
 class PlaceholderFragment : Fragment() {
 
-    private lateinit var pageViewModel: PageViewModel
     private lateinit var itemViewModel: ItemViewModel
     private var _binding: FragmentMainBinding? = null
 
@@ -35,9 +34,6 @@ class PlaceholderFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageViewModel = ViewModelProvider(this).get(PageViewModel::class.java).apply {
-            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
-        }
         itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java).apply {
             selectItem(0)
         }
@@ -57,9 +53,6 @@ class PlaceholderFragment : Fragment() {
         val root = binding.root
 
         val textView: TextView = binding.sectionLabel
-        pageViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
 
         for (i in 1..5) addItem(i)
 
@@ -69,6 +62,7 @@ class PlaceholderFragment : Fragment() {
                 itemViewModel.selectItem(position)
                 Toast.makeText(this@PlaceholderFragment.context, "You clicked item $position \n ItemViewModel: ${itemViewModel.selectedItem.value}", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this@PlaceholderFragment.context, DeviceActivity::class.java)
+                intent.putExtra("card", position)
                 startActivity(intent)
             }
         })

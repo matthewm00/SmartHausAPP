@@ -16,4 +16,8 @@ class ItemViewModel : ViewModel() {
     fun selectItem(position: Int) {
         mutableSelectedItem.value = position
     }
+
+    fun getItem(): Int? {
+        return mutableSelectedItem.value
+    }
 }

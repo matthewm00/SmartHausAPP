@@ -3,14 +3,14 @@ package com.example.smarthausapp.ui.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.example.smarthausapp.R
-import com.example.smarthausapp.databinding.AcItemBinding
-import com.example.smarthausapp.databinding.ActivityMainBinding
+import com.example.smarthausapp.databinding.*
 import com.google.android.material.tabs.TabLayout
 
 class DeviceActivity : AppCompatActivity() {
@@ -22,22 +22,26 @@ class DeviceActivity : AppCompatActivity() {
         itemViewModel = ViewModelProvider(this)[ItemViewModel::class.java]
         val item  = itemViewModel.selectedItem
 
-        when(item.value){
+        when(intent.extras?.get("card")){
             0 -> {
                 val binding: AcItemBinding = AcItemBinding.inflate(layoutInflater)
                 setContentView(binding.root)
             }
             1 -> {
-
+                val binding: AspiradoraItemBinding = AspiradoraItemBinding.inflate(layoutInflater)
+                setContentView(binding.root)
             }
             2 -> {
-
+                val binding: CortinaItemBinding = CortinaItemBinding.inflate(layoutInflater)
+                setContentView(binding.root)
             }
             3 -> {
-
+                val binding: DoorItemBinding = DoorItemBinding.inflate(layoutInflater)
+                setContentView(binding.root)
             }
             4 -> {
-
+                val binding: FridgeItemBinding = FridgeItemBinding.inflate(layoutInflater)
+                setContentView(binding.root)
             }
         }
     }

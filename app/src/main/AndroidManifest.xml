@@ -27,7 +27,7 @@
         <activity
             android:name=".ui.main.DeviceActivity"
             android:label="@string/device_activity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SmartHausAPP.NoActionBar"/>
     </application>
-
 </manifest>
