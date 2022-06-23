@@ -25,6 +25,14 @@ class CustomAdapter constructor(private val dataSet: ArrayList<String>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d(TAG, "Element $position set.")
         holder.textView.text = dataSet[position]
+        val img: ImageView = holder.itemView.findViewById<ImageView>(R.id.imageView2)
+        when (position + 1){
+            1-> img.setImageResource(R.drawable.air_icon)
+            2-> img.setImageResource(R.drawable.hoover_icon)
+            3-> img.setImageResource(R.drawable.curtain_icon)
+            4-> img.setImageResource(R.drawable.bedroom_icon)
+            5-> img.setImageResource(R.drawable.fridge_icon)
+        }
     }
 
     override fun getItemCount(): Int {

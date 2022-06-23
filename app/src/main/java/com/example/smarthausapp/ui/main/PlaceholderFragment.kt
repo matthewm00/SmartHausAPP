@@ -38,34 +38,29 @@ class PlaceholderFragment : Fragment() {
         }
     }
 
-    private fun addItem(index: Int, img: ImageView) {
+    private fun addItem(index: Int) {
         val itemText: String
         val device: String
         when(index) {
             1-> {
                 device = resources.getString(R.string.ac_title)
                 itemText = resources.getString(R.string.item_text, device)
-                img.setImageResource(R.drawable.air_icon)
             }
             2 -> {
                 device = resources.getString(R.string.hoover_title)
                 itemText = resources.getString(R.string.item_text, device)
-                img.setImageResource(R.drawable.hoover_icon)
             }
             3 -> {
                 device = resources.getString(R.string.curtain_title)
                 itemText = resources.getString(R.string.item_text, device)
-                img.setImageResource(R.drawable.curtain_icon)
             }
             4 -> {
                 device = resources.getString(R.string.door_title)
                 itemText = resources.getString(R.string.item_text, device)
-                img.setImageResource(R.drawable.bedroom_icon)
             }
             5 -> {
                 device = resources.getString(R.string.fridge_title)
                 itemText = resources.getString(R.string.item_text, device)
-                img.setImageResource(R.drawable.fridge_icon)
             }
             else -> itemText = " "
         }
@@ -82,9 +77,7 @@ class PlaceholderFragment : Fragment() {
 
         val textView: TextView = binding.sectionLabel
 
-        val img: ImageView = view?.findViewById(R.id.imageView2)!!
-
-        for (i in 1..5) addItem(i, img)
+        for (i in 1..5) addItem(i)
 
         adapter = CustomAdapter(dataSet)
         adapter.setOnItemClickListener(object : CustomAdapter.onItemClickListener{
@@ -102,7 +95,7 @@ class PlaceholderFragment : Fragment() {
         binding.recyclerview.adapter = adapter
 
         binding.fab.setOnClickListener {
-            addItem(dataSet.size + 1, img)
+            addItem(dataSet.size + 1)
             //adapter.notifyDataSetChanged();
             adapter.notifyItemInserted(dataSet.size)
         }
