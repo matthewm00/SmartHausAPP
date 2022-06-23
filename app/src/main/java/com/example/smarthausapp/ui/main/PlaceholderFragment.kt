@@ -1,16 +1,14 @@
 package com.example.smarthausapp.ui.main
 
-//import android.R
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,29 +38,34 @@ class PlaceholderFragment : Fragment() {
         }
     }
 
-    private fun addItem(index: Int) {
+    private fun addItem(index: Int, img: ImageView) {
         val itemText: String
         val device: String
         when(index) {
             1-> {
                 device = resources.getString(R.string.ac_title)
                 itemText = resources.getString(R.string.item_text, device)
+                img.setImageResource(R.drawable.air_icon)
             }
             2 -> {
                 device = resources.getString(R.string.hoover_title)
                 itemText = resources.getString(R.string.item_text, device)
+                img.setImageResource(R.drawable.hoover_icon)
             }
             3 -> {
                 device = resources.getString(R.string.curtain_title)
                 itemText = resources.getString(R.string.item_text, device)
+                img.setImageResource(R.drawable.curtain_icon)
             }
             4 -> {
                 device = resources.getString(R.string.door_title)
                 itemText = resources.getString(R.string.item_text, device)
+                img.setImageResource(R.drawable.bedroom_icon)
             }
             5 -> {
                 device = resources.getString(R.string.fridge_title)
                 itemText = resources.getString(R.string.item_text, device)
+                img.setImageResource(R.drawable.fridge_icon)
             }
             else -> itemText = " "
         }
@@ -79,7 +82,9 @@ class PlaceholderFragment : Fragment() {
 
         val textView: TextView = binding.sectionLabel
 
-        for (i in 1..5) addItem(i)
+        val img: ImageView = view?.findViewById(R.id.imageView2)!!
+
+        for (i in 1..5) addItem(i, img)
 
         adapter = CustomAdapter(dataSet)
         adapter.setOnItemClickListener(object : CustomAdapter.onItemClickListener{
@@ -92,11 +97,12 @@ class PlaceholderFragment : Fragment() {
             }
         })
         binding.recyclerview.layoutManager = LinearLayoutManager(this.context)
-        binding.recyclerview.layoutManager = GridLayoutManager(this.context, 2)
+        binding.recyclerview.layoutManager = GridLayoutManager(this.context, 2
+        )
         binding.recyclerview.adapter = adapter
 
         binding.fab.setOnClickListener {
-            addItem(dataSet.size + 1)
+            addItem(dataSet.size + 1, img)
             //adapter.notifyDataSetChanged();
             adapter.notifyItemInserted(dataSet.size)
         }

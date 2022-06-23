@@ -28,8 +28,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="10"
                 android:contentDescription="@string/app_name"
-                android:maxWidth="20dp"
                 app:srcCompat="@android:drawable/btn_star_big_on"
+                android:maxWidth="20dp"
                 tools:ignore="ImageContrastCheck" />
 
             <LinearLayout
