@@ -41,4 +41,6 @@
     <string name="curtain_title">Cortinas</string>
     <string name="door_title">Puerta</string>
     <string name="fridge_title">Heladera</string>
+    <string name="channel_name">channel</string>
+    <string name="channel_description">channel description</string>
 </resources>

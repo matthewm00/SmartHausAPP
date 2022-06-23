@@ -1,6 +1,10 @@
 package com.example.smarthausapp.ui.main
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,13 +12,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smarthausapp.R
 import com.example.smarthausapp.databinding.FragmentMainBinding
-
 
 /**
  * A placeholder fragment containing a simple view.
@@ -35,6 +41,23 @@ class PlaceholderFragment : Fragment() {
         super.onCreate(savedInstanceState)
         itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java).apply {
             selectItem(0)
+        }
+    }
+
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = getString(R.string.channel_name)
+            val descriptionText = getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("channelID", name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                activity?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
         }
     }
 
@@ -82,6 +105,30 @@ class PlaceholderFragment : Fragment() {
         adapter = CustomAdapter(dataSet)
         adapter.setOnItemClickListener(object : CustomAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
+
+                // notificacion
+                createNotificationChannel()
+                var builder: NotificationCompat.Builder? =
+                    this@PlaceholderFragment.context?.let { NotificationCompat.Builder(it, "channelID") }
+                if(builder != null){
+                    builder.setContentTitle("title")
+                    builder.setContentText("text")
+                    builder.setSmallIcon(R.drawable.sun_icon)
+                    builder.setAutoCancel(true)
+
+                    var managerCompat: NotificationManagerCompat? = this@PlaceholderFragment.context?.let {
+                        NotificationManagerCompat.from(
+                            it
+                        )
+                    }
+                    if(managerCompat != null) {
+                        managerCompat.notify(1, builder.build())
+                    }
+                }
+                //
+
+
+
                 itemViewModel.selectItem(position)
                 Toast.makeText(this@PlaceholderFragment.context, "You clicked item $position \n ItemViewModel: ${itemViewModel.selectedItem.value}", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this@PlaceholderFragment.context, DeviceActivity::class.java)
@@ -129,3 +176,4 @@ class PlaceholderFragment : Fragment() {
         _binding = null
     }
 }
+

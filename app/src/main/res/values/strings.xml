@@ -40,5 +40,7 @@
     <string name="curtain_title">Curtains</string>
     <string name="door_title">Door</string>
     <string name="fridge_title">Fridge</string>
+    <string name="channel_name">channel</string>
+    <string name="channel_description">channel description</string>
 
 </resources>
