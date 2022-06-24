@@ -14,7 +14,11 @@ class RemoteFridgeState : RemoteDeviceState {
     @Expose
     lateinit var mode: String
 
-    @SerializedName("temperature")
+    @SerializedName("setFreezerTemperature")
+    @Expose
+    var freezerTemperature: Int = 0
+
+    @SerializedName("setTemperature")
     @Expose
     var temperature: Int = 0
 }
